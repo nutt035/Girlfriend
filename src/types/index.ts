@@ -128,6 +128,16 @@ export interface VisitedProvince {
   relatedMomentIds?: string[];
 }
 
+// Visited District (for deep map recording)
+export interface VisitedDistrict {
+  id: string; // format: provinceId-districtName
+  districtName: string;
+  provinceId: string;
+  visitDate: string;
+  note?: string;
+  photos?: string[];
+}
+
 // Milestone (special dates/achievements)
 export interface Milestone {
   id: string;
@@ -158,6 +168,7 @@ export interface YearData {
   quests: Quest[];
   places: Place[];
   visitedProvinces: VisitedProvince[];
+  visitedDistricts?: VisitedDistrict[];
   milestones?: Milestone[];
 }
 

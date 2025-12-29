@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/lib/store';
 import { thaiProvinces } from '@/data/thai-provinces';
 import { MapPin, Star, Heart, Loader2, RefreshCw, Plus, Minus } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface GeoJSONFeature {
     type: string;
@@ -41,6 +42,7 @@ export const ThailandMap: React.FC<ThailandMapProps> = ({
     const [zoomTransform, setZoomTransform] = useState<d3.ZoomTransform>(d3.zoomIdentity);
     const [hoveredDistrictName, setHoveredDistrictName] = useState<string | null>(null);
     const { universeData, selectedYear } = useAppStore();
+    const router = useRouter();
     const svgRef = useRef<SVGSVGElement>(null);
 
     // Map province names from GeoJSON to our IDs
@@ -81,6 +83,11 @@ export const ThailandMap: React.FC<ThailandMapProps> = ({
 
     // Status data for styling
     const yearData = universeData.years[selectedYear];
+
+    const visitedDistrictsSet = useMemo(() =>
+        new Set((yearData?.visitedDistricts || []).map(d => d.id)),
+        [yearData, selectedYear]);
+
     const visitedThisYear = useMemo(() =>
         new Set((yearData?.visitedProvinces || []).map(p => p.provinceId)),
         [yearData, selectedYear]);
@@ -180,6 +187,9 @@ export const ThailandMap: React.FC<ThailandMapProps> = ({
                         const isVisitedEver = visitedEver.has(id);
                         const isWishlist = wishlist.has(id);
 
+                        const districtKey = `${id}-${thDistrict}`;
+                        const hasDistrictMemory = visitedDistrictsSet.has(districtKey);
+
                         let fillColor = "#ffffff";
                         let strokeColor = "#f3f4f6";
                         let strokeWidth = "0.05";
@@ -208,12 +218,21 @@ export const ThailandMap: React.FC<ThailandMapProps> = ({
                                 fill={fillColor}
                                 stroke={strokeColor}
                                 strokeWidth={strokeWidth}
-                                className="transition-colors duration-300"
+                                className="transition-colors duration-300 pointer-events-auto"
+                                style={{
+                                    fill: hasDistrictMemory ? '#fda4af' : (isSelected && !isVisitedThisYear ? '#fff' : fillColor),
+                                    stroke: hasDistrictMemory ? '#e11d48' : strokeColor,
+                                    strokeWidth: hasDistrictMemory ? '0.15' : strokeWidth
+                                }}
                                 onMouseEnter={() => thDistrict && setHoveredDistrictName(thDistrict)}
                                 onMouseLeave={() => setHoveredDistrictName(null)}
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    onSelectProvince(id);
+                                    if (selectedProvinceId === id) {
+                                        router.push(`/map/district/${encodeURIComponent(districtKey)}`);
+                                    } else {
+                                        onSelectProvince(id);
+                                    }
                                 }}
                             />
                         );
@@ -223,7 +242,7 @@ export const ThailandMap: React.FC<ThailandMapProps> = ({
 
             {/* Instruction Hint */}
             <div className="absolute top-4 left-4 p-3 bg-white/60 backdrop-blur-md rounded-2xl border border-pink-100 text-[10px] text-pink-400 font-medium pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-                💡 ใช้ 2 นิ้วหรือเมาส์ซูม/ลากดูอำเภอได้นะ
+                💡 ใช้ 2 นิ้วหรือเมาส์ซูม/ลาก {selectedProvinceId ? 'แล้วกดอำเภอเพื่อจด' : 'ดูอำเภอได้นะ'}
             </div>
 
             {/* Zoom Controls */}

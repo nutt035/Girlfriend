@@ -169,21 +169,40 @@ export function filterEntries(
  * Check if a badge should be unlocked
  */
 export function checkBadgeUnlock(badge: Badge, data: UniverseData): boolean {
-    const allQuests = Object.values(data.years).flatMap(y => y.quests);
-    const doneQuests = allQuests.filter(q => q.status === 'done');
+    const years = Object.values(data.years);
+    const doneQuests = years.flatMap(y => y.quests).filter(q => q.status === 'done');
+    const totalEntries = years.reduce((sum, y) => sum + y.entries.length, 0);
+    const totalPhotos = years.reduce((sum, y) => sum + y.photos.length, 0);
+    const totalVisitedProvinces = new Set(years.flatMap(y => (y.visitedProvinces || []).map(p => p.provinceId))).size;
+    const totalVisitedDistricts = years.reduce((sum, y) => sum + (y.visitedDistricts || []).length, 0);
 
-    switch (badge.condition.type) {
+    const condition = badge.condition;
+    const targetCount = condition.count || 0;
+
+    switch (condition.type) {
         case 'first_quest':
             return doneQuests.length >= 1;
 
         case 'quest_count':
-            return doneQuests.length >= (badge.condition.count || 0);
+            return doneQuests.length >= targetCount;
 
         case 'quest_tag':
             const taggedQuests = doneQuests.filter(q =>
-                q.tags.includes(badge.condition.tag || '')
+                q.tags.includes(condition.tag || '')
             );
-            return taggedQuests.length >= (badge.condition.count || 0);
+            return taggedQuests.length >= targetCount;
+
+        case 'province_count' as any:
+            return totalVisitedProvinces >= targetCount;
+
+        case 'district_count' as any:
+            return totalVisitedDistricts >= targetCount;
+
+        case 'entry_count' as any:
+            return totalEntries >= targetCount;
+
+        case 'photo_count' as any:
+            return totalPhotos >= targetCount;
 
         default:
             return false;

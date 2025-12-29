@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { UniverseData, Theme, Entry, Quest, Moment, VisitedProvince, CountdownEvent, ChatEpisode } from '@/types';
+import { UniverseData, Theme, Entry, Quest, Moment, VisitedProvince, CountdownEvent, ChatEpisode, YearRecap, YearData, VisitedDistrict } from '@/types';
 import universeJson from '@/data/universe.json';
 
 interface AppState {
@@ -49,6 +49,11 @@ interface AppState {
     updateCountdown: (countdownId: string, updates: Partial<CountdownEvent>) => void;
     deleteCountdown: (countdownId: string) => void;
 
+    // District mutations
+    addVisitedDistrict: (year: string, district: VisitedDistrict) => void;
+    updateVisitedDistrict: (year: string, districtId: string, updates: Partial<VisitedDistrict>) => void;
+    removeVisitedDistrict: (year: string, districtId: string) => void;
+
     // Chat mutations
     addChatEpisode: (year: string, episode: ChatEpisode) => void;
     updateChatEpisode: (year: string, episodeId: string, updates: Partial<ChatEpisode>) => void;
@@ -56,11 +61,43 @@ interface AppState {
 
     // Meta mutations
     updateUniverseMeta: (updates: Partial<UniverseData['meta']>) => void;
+    updateYearRecap: (year: string, updates: Partial<YearRecap>) => void;
 
     // Utils
     resetData: () => void;
+    clearAllData: () => void;
     reloadFromJson: () => void;
 }
+
+const getEmptyYearData = (year: string): YearData => ({
+    entries: [],
+    moments: [],
+    photos: [],
+    notes: [],
+    yearRecap: {
+        lessonsLearned: [],
+        bestMoments: [],
+        gratitude: [],
+        nextYearIntentions: []
+    },
+    chatEpisodes: [],
+    quests: [],
+    places: [],
+    visitedProvinces: [],
+    visitedDistricts: [],
+});
+
+const emptyUniverse: UniverseData = {
+    meta: {
+        appName: "Our Universe",
+        relationshipStartDate: new Date().toISOString(),
+        people: { me: "Me", you: "You" }
+    },
+    years: {
+        '2025': getEmptyYearData('2025')
+    },
+    badges: [],
+};
 
 const initialData = universeJson as unknown as UniverseData;
 
@@ -381,6 +418,56 @@ export const useAppStore = create<AppState>()(
                 };
             }),
 
+            // District mutations
+            addVisitedDistrict: (year, district) => set((state) => {
+                const yearData = state.universeData.years[year];
+                if (!yearData) return state;
+                const existing = yearData.visitedDistricts || [];
+                if (existing.some(d => d.id === district.id)) return state;
+                return {
+                    universeData: {
+                        ...state.universeData,
+                        years: {
+                            ...state.universeData.years,
+                            [year]: { ...yearData, visitedDistricts: [...existing, district] }
+                        }
+                    }
+                };
+            }),
+
+            updateVisitedDistrict: (year, districtId, updates) => set((state) => {
+                const yearData = state.universeData.years[year];
+                if (!yearData) return state;
+                return {
+                    universeData: {
+                        ...state.universeData,
+                        years: {
+                            ...state.universeData.years,
+                            [year]: {
+                                ...yearData,
+                                visitedDistricts: (yearData.visitedDistricts || []).map(d =>
+                                    d.id === districtId ? { ...d, ...updates } : d
+                                )
+                            }
+                        }
+                    }
+                };
+            }),
+
+            removeVisitedDistrict: (year, districtId) => set((state) => {
+                const yearData = state.universeData.years[year];
+                if (!yearData) return state;
+                return {
+                    universeData: {
+                        ...state.universeData,
+                        years: {
+                            ...state.universeData.years,
+                            [year]: { ...yearData, visitedDistricts: (yearData.visitedDistricts || []).filter(d => d.id !== districtId) }
+                        }
+                    }
+                };
+            }),
+
             updateUniverseMeta: (updates) => set((state) => ({
                 universeData: {
                     ...state.universeData,
@@ -388,8 +475,26 @@ export const useAppStore = create<AppState>()(
                 }
             })),
 
+            updateYearRecap: (year, updates) => set((state) => {
+                const yearData = state.universeData.years[year];
+                if (!yearData) return state;
+                return {
+                    universeData: {
+                        ...state.universeData,
+                        years: {
+                            ...state.universeData.years,
+                            [year]: {
+                                ...yearData,
+                                yearRecap: { ...yearData.yearRecap, ...updates }
+                            }
+                        }
+                    }
+                };
+            }),
+
             // Utils
             resetData: () => set({ universeData: initialData }),
+            clearAllData: () => set({ universeData: emptyUniverse }),
             reloadFromJson: () => set({ universeData: initialData }),
         }),
         {

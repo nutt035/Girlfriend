@@ -372,16 +372,45 @@ export default function SettingsPage() {
                             </div>
                         </div>
 
-                        {/* Reset All Data */}
+                        {/* Wipe Everything (Clean Slate) */}
+                        <div className="p-3 rounded-xl bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="font-medium text-gray-800 dark:text-gray-100 flex items-center gap-1 text-orange-600">
+                                        <Trash2 className="w-4 h-4" />
+                                        ล้างข้อมูลเพื่อเริ่มใหม่ (Clean Slate)
+                                    </p>
+                                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                                        ลบข้อมูลทั้งหมดและเริ่มจาก Universe ที่ว่างเปล่า (ข้อมูลของเราเอง)
+                                    </p>
+                                </div>
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => {
+                                        if (confirm("ต้องการล้างข้อมูลทั้งหมดเพื่อเริ่มจดใหม่ใช่ไหม? (ข้อมูลตัวอย่างจะหายไปด้วยนะ)")) {
+                                            useAppStore.getState().clearAllData();
+                                            window.location.href = '/';
+                                        }
+                                    }}
+                                    className="px-3 py-2 rounded-lg bg-orange-500 text-white text-sm font-medium flex items-center gap-1"
+                                >
+                                    <RefreshCw className="w-4 h-4" />
+                                    Wipe
+                                </motion.button>
+                            </div>
+                        </div>
+
+                        {/* Reset All Data (Restore JSON) */}
                         <div className="p-3 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="font-medium text-gray-800 dark:text-gray-100 flex items-center gap-1">
                                         <AlertTriangle className="w-4 h-4 text-red-500" />
-                                        รีเซ็ตข้อมูลทั้งหมด
+                                        กู้ข้อมูลตั้งต้น (Reset to Default)
                                     </p>
                                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                                        ลบข้อมูลใน localStorage และโหลดใหม่จาก JSON
+                                        ลบข้อมูลปัจจุบันและโหลดกลับมาจากไฟล์ตัวอย่าง
                                     </p>
                                 </div>
                                 {!showResetConfirm ? (
@@ -406,7 +435,7 @@ export default function SettingsPage() {
                                             onClick={handleReset}
                                             className="px-3 py-2 rounded-lg bg-red-500 text-white text-sm font-medium"
                                         >
-                                            ยืนยันรีเซ็ต
+                                            ยืนยัน
                                         </button>
                                     </div>
                                 )}
