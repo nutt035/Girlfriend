@@ -8,6 +8,7 @@ import PaperCard from '@/components/PaperCard';
 import { useAppStore } from '@/lib/store';
 import { ArrowLeft, Save, MessageCircle, Plus, Trash2, Send } from 'lucide-react';
 import Link from 'next/link';
+import ImageUpload from '@/components/ImageUpload';
 
 export default function AddChatEpisodePage() {
     const router = useRouter();
@@ -16,16 +17,18 @@ export default function AddChatEpisodePage() {
     const [title, setTitle] = useState('');
     const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
     const [description, setDescription] = useState('');
-    const [messages, setMessages] = useState<{ from: 'me' | 'you'; text: string; time: string }[]>([]);
+    const [messages, setMessages] = useState<{ from: 'me' | 'you'; text: string; time: string; photo?: string }[]>([]);
     const [newMessage, setNewMessage] = useState('');
     const [newMsgFrom, setNewMsgFrom] = useState<'me' | 'you'>('me');
+    const [newMsgPhoto, setNewMsgPhoto] = useState('');
 
     const handleAddMessage = () => {
-        if (!newMessage.trim()) return;
+        if (!newMessage.trim() && !newMsgPhoto) return;
 
         const time = new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' });
-        setMessages([...messages, { from: newMsgFrom, text: newMessage.trim(), time }]);
+        setMessages([...messages, { from: newMsgFrom, text: newMessage.trim(), time, photo: newMsgPhoto }]);
         setNewMessage('');
+        setNewMsgPhoto('');
     };
 
     const handleRemoveMessage = (index: number) => {
@@ -108,23 +111,26 @@ export default function AddChatEpisodePage() {
                         </div>
 
                         {/* Message List Preview */}
-                        <div className="space-y-2 max-h-60 overflow-y-auto p-4 bg-paper-50 dark:bg-slate-900/50 rounded-2xl border border-paper-200 dark:border-slate-800">
+                        <div className="space-y-2 max-h-80 overflow-y-auto p-4 bg-paper-50 dark:bg-slate-900/50 rounded-2xl border border-paper-200 dark:border-slate-800">
                             {messages.length === 0 ? (
                                 <p className="text-center text-xs text-gray-400 py-4 italic">ยังไม่มีข้อความจ้า...</p>
                             ) : (
                                 messages.map((msg, idx) => (
                                     <div key={idx} className={`flex ${msg.from === 'me' ? 'justify-end' : 'justify-start'} group items-start gap-2`}>
-                                        {msg.from === 'you' && <button type="button" onClick={() => handleRemoveMessage(idx)} className="opacity-0 group-hover:opacity-100 text-red-500 p-1"><Trash2 className="w-3 h-3" /></button>}
+                                        {msg.from === 'you' && <button type="button" onClick={() => handleRemoveMessage(idx)} className="opacity-0 group-hover:opacity-100 text-red-500 p-1 mt-2 text-xs">ลบ</button>}
                                         <div className={`
                                             max-w-[80%] px-3 py-1.5 rounded-2xl text-sm shadow-sm
                                             ${msg.from === 'me' ? 'bg-pink-500 text-white rounded-tr-none' : 'bg-white dark:bg-slate-800 text-gray-800 dark:text-gray-100 border border-paper-200 dark:border-slate-700 rounded-tl-none'}
                                         `}>
+                                            {msg.photo && (
+                                                <img src={msg.photo} alt="" className="w-full max-w-[200px] aspect-square object-cover rounded-lg mb-2 border border-white/20" />
+                                            )}
                                             {msg.text}
                                             <div className={`text-[8px] mt-1 opacity-70 ${msg.from === 'me' ? 'text-white/80 text-right' : 'text-gray-400'}`}>
                                                 {msg.time}
                                             </div>
                                         </div>
-                                        {msg.from === 'me' && <button type="button" onClick={() => handleRemoveMessage(idx)} className="opacity-0 group-hover:opacity-100 text-red-500 p-1"><Trash2 className="w-3 h-3" /></button>}
+                                        {msg.from === 'me' && <button type="button" onClick={() => handleRemoveMessage(idx)} className="opacity-0 group-hover:opacity-100 text-red-500 p-1 mt-2 text-xs">ลบ</button>}
                                     </div>
                                 ))
                             )}
@@ -148,6 +154,15 @@ export default function AddChatEpisodePage() {
                                     เธอ (You)
                                 </button>
                             </div>
+
+                            <div className="bg-paper-100 dark:bg-slate-900 rounded-xl p-2">
+                                <ImageUpload
+                                    value={newMsgPhoto}
+                                    onChange={setNewMsgPhoto}
+                                    label="รูปภาพประกอบ (ถ้ามี)"
+                                />
+                            </div>
+
                             <div className="flex gap-2">
                                 <input
                                     type="text"

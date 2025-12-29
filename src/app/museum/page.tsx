@@ -102,9 +102,19 @@ export default function MuseumPage() {
                                     <Link href={`/museum/${exhibit.id}`}>
                                         <PaperCard hoverable className="h-full overflow-hidden">
                                             {/* Exhibit Image Placeholder */}
-                                            <div className="aspect-video bg-gradient-to-br from-violet-100 to-purple-100 dark:from-violet-900/30 dark:to-purple-900/30 flex items-center justify-center">
-                                                {exhibit.photos.length > 0 ? (
-                                                    <span className="text-4xl">📷</span>
+                                            <div className="aspect-video relative bg-gradient-to-br from-violet-100 to-purple-100 dark:from-violet-900/30 dark:to-purple-900/30 flex items-center justify-center">
+                                                {exhibit.image ? (
+                                                    <img
+                                                        src={exhibit.image}
+                                                        alt={exhibit.title}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                ) : exhibit.photos.length > 0 ? (
+                                                    <img
+                                                        src={exhibit.photos[0]}
+                                                        alt={exhibit.title}
+                                                        className="w-full h-full object-cover"
+                                                    />
                                                 ) : (
                                                     <span className="text-4xl">
                                                         {exhibit.category === 'firsts' && '💕'}

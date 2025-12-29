@@ -123,19 +123,30 @@ export default function YearbookMonthPage({ params }: { params: Promise<{ month:
                                         transition={{ delay: index * 0.1 }}
                                     >
                                         <Link href={`/museum/${moment.id}`}>
-                                            <PaperCard hoverable className="p-4 h-full">
-                                                <p className="text-sm text-gray-500 dark:text-gray-400">
-                                                    {formatDate(moment.date, 'long')}
-                                                </p>
-                                                <h3 className="font-bold text-gray-800 dark:text-gray-100">
-                                                    {moment.title}
-                                                </h3>
-                                                <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-                                                    {moment.description}
-                                                </p>
-                                                <span className="inline-block mt-2 px-2 py-0.5 rounded-full text-xs bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400">
-                                                    {moment.category}
-                                                </span>
+                                            <PaperCard hoverable className="p-0 overflow-hidden h-full flex flex-col sm:flex-row">
+                                                {(moment.image || moment.photos?.length > 0) && (
+                                                    <div className="w-full sm:w-24 aspect-video sm:aspect-square flex-shrink-0">
+                                                        <img
+                                                            src={moment.image || moment.photos[0]}
+                                                            alt=""
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    </div>
+                                                )}
+                                                <div className="p-4 flex-1 min-w-0">
+                                                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                                                        {formatDate(moment.date, 'long')}
+                                                    </p>
+                                                    <h3 className="font-bold text-gray-800 dark:text-gray-100 truncate">
+                                                        {moment.title}
+                                                    </h3>
+                                                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1 line-clamp-1">
+                                                        {moment.description}
+                                                    </p>
+                                                    <span className="inline-block mt-2 px-2 py-0.5 rounded-full text-xs bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400">
+                                                        {moment.category}
+                                                    </span>
+                                                </div>
                                             </PaperCard>
                                         </Link>
                                     </motion.div>
@@ -164,9 +175,13 @@ export default function YearbookMonthPage({ params }: { params: Promise<{ month:
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ delay: index * 0.1 }}
                                     >
-                                        <PaperCard className="overflow-hidden">
-                                            <div className="aspect-square bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                                                <span className="text-4xl">📷</span>
+                                        <PaperCard className="overflow-hidden group">
+                                            <div className="aspect-square bg-gray-200 dark:bg-gray-700 relative overflow-hidden">
+                                                <img
+                                                    src={photo.url}
+                                                    alt={photo.caption}
+                                                    className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                                                />
                                             </div>
                                             <div className="p-3">
                                                 <p className="text-sm font-medium text-gray-800 dark:text-gray-100 truncate">

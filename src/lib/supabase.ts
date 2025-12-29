@@ -83,6 +83,32 @@ export async function createNewUniverse(universeData: unknown) {
     }
 }
 
+export async function uploadImage(file: File) {
+    try {
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
+        const filePath = `uploads/${fileName}`;
+
+        const { data, error } = await supabase.storage
+            .from('images')
+            .upload(filePath, file);
+
+        if (error) {
+            console.error('Error uploading image:', error);
+            return null;
+        }
+
+        const { data: { publicUrl } } = supabase.storage
+            .from('images')
+            .getPublicUrl(filePath);
+
+        return publicUrl;
+    } catch (err) {
+        console.error('Supabase storage error:', err);
+        return null;
+    }
+}
+
 function generateShareId(): string {
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';

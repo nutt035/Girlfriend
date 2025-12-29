@@ -8,6 +8,7 @@ import PaperCard from '@/components/PaperCard';
 import { useAppStore } from '@/lib/store';
 import { ArrowLeft, Save, Sparkles, Image as ImageIcon, Tag, Trash2 } from 'lucide-react';
 import Link from 'next/link';
+import ImageUpload from '@/components/ImageUpload';
 
 export default function EditMomentPage() {
     const router = useRouter();
@@ -141,24 +142,13 @@ export default function EditMomentPage() {
                             />
                         </div>
 
-                        {/* Image URL */}
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                รูปภาพ (URL)
-                            </label>
-                            <div className="flex gap-2">
-                                <div className="flex-1 relative">
-                                    <ImageIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                                    <input
-                                        type="url"
-                                        value={image}
-                                        onChange={(e) => setImage(e.target.value)}
-                                        className="w-full pl-10 pr-4 py-2 rounded-xl bg-paper-100 dark:bg-slate-900 border-none focus:ring-2 focus:ring-pink-500 transition-all text-sm"
-                                        placeholder="ใส่ลิงก์รูปภาพ..."
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                        {/* Image Upload */}
+                        <ImageUpload
+                            value={image}
+                            onChange={setImage}
+                            label="รูปภาพความทรงจำ"
+                        />
+
 
                         {/* Description */}
                         <div>

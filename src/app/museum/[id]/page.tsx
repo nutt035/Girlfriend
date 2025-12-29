@@ -78,12 +78,19 @@ export default function MuseumDetailPage({ params }: { params: Promise<{ id: str
                 >
                     <PaperCard className="overflow-hidden">
                         {/* Hero Image */}
-                        <div className={`aspect-video bg-gradient-to-br ${getCategoryColor()} flex items-center justify-center`}>
-                            {exhibit.photos.length > 0 ? (
-                                <div className="text-white text-center">
-                                    <span className="text-6xl">📷</span>
-                                    <p className="mt-2">{exhibit.photos[0]}</p>
-                                </div>
+                        <div className={`aspect-video relative bg-gradient-to-br ${getCategoryColor()} flex items-center justify-center`}>
+                            {exhibit.image ? (
+                                <img
+                                    src={exhibit.image}
+                                    alt={exhibit.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            ) : exhibit.photos.length > 0 ? (
+                                <img
+                                    src={exhibit.photos[0]}
+                                    alt={exhibit.title}
+                                    className="w-full h-full object-cover"
+                                />
                             ) : (
                                 <span className="text-8xl text-white/50">
                                     {exhibit.category === 'firsts' && '💕'}

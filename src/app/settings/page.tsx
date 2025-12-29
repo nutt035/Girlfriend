@@ -7,7 +7,7 @@ import AppHeader from '@/components/AppHeader';
 import PaperCard from '@/components/PaperCard';
 import { useAppStore } from '@/lib/store';
 import { useCloudSync } from '@/hooks/useCloudSync';
-import { ArrowLeft, Settings, RefreshCw, Trash2, Database, AlertTriangle, Check, Cloud, CloudOff, Share2, Copy, User, Heart, Calendar as CalendarIcon, Save } from 'lucide-react';
+import { ArrowLeft, Settings, RefreshCw, Trash2, Database, AlertTriangle, Check, Cloud, CloudOff, Share2, Copy, User, Heart, Calendar as CalendarIcon, Save, Image as ImageIcon } from 'lucide-react';
 
 export default function SettingsPage() {
     const { universeData, selectedYear, reloadFromJson, resetData, deleteQuest, deleteMoment, deleteCountdown, updateUniverseMeta } = useAppStore();
@@ -472,6 +472,32 @@ export default function SettingsPage() {
                                     <span className="text-sm text-gray-800 dark:text-gray-100 truncate">{quest.title}</span>
                                     <button
                                         onClick={() => deleteQuest(selectedYear, quest.id)}
+                                        className="p-1.5 rounded-lg text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30"
+                                    >
+                                        <Trash2 className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    </PaperCard>
+                )}
+
+                {/* Moments List with Delete */}
+                {yearData?.moments.length > 0 && (
+                    <PaperCard className="p-4 sm:p-6 mb-6">
+                        <h2 className="font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
+                            <ImageIcon className="w-5 h-5 text-pink-500" />
+                            จัดการ Museum Moments
+                        </h2>
+                        <div className="space-y-2 max-h-48 overflow-y-auto">
+                            {yearData.moments.map(moment => (
+                                <div key={moment.id} className="flex items-center justify-between p-2 rounded-lg bg-gray-50 dark:bg-gray-800/50">
+                                    <div className="flex items-center gap-2 truncate flex-1 mr-2">
+                                        {moment.image && <img src={moment.image} alt="" className="w-8 h-8 rounded object-cover flex-shrink-0" />}
+                                        <span className="text-sm text-gray-800 dark:text-gray-100 truncate">{moment.title}</span>
+                                    </div>
+                                    <button
+                                        onClick={() => deleteMoment(selectedYear, moment.id)}
                                         className="p-1.5 rounded-lg text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30"
                                     >
                                         <Trash2 className="w-4 h-4" />
