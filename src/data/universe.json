@@ -1,0 +1,1174 @@
+{
+  "meta": {
+    "appName": "Our Universe",
+    "relationshipStartDate": "2025-05-22",
+    "people": {
+      "me": "Nut",
+      "you": "Praewa"
+    }
+  },
+  "badges": [
+    {
+      "id": "b1",
+      "title": "First Quest Completed",
+      "description": "ทำ Quest แรกสำเร็จ!",
+      "icon": "🏆",
+      "condition": {
+        "type": "first_quest"
+      }
+    },
+    {
+      "id": "b2",
+      "title": "5 Dates Done",
+      "description": "ออกเดทครบ 5 ครั้ง",
+      "icon": "💕",
+      "condition": {
+        "type": "quest_tag",
+        "tag": "date",
+        "count": 5
+      }
+    },
+    {
+      "id": "b3",
+      "title": "Trip Unlocked",
+      "description": "เดินทางด้วยกันครั้งแรก",
+      "icon": "✈️",
+      "condition": {
+        "type": "quest_tag",
+        "tag": "trip",
+        "count": 1
+      }
+    },
+    {
+      "id": "b4",
+      "title": "Adventurer",
+      "description": "ทำ Quest ครบ 10 อัน",
+      "icon": "⚔️",
+      "condition": {
+        "type": "quest_count",
+        "count": 10
+      }
+    },
+    {
+      "id": "b5",
+      "title": "Memory Keeper",
+      "description": "เขียน Journal ครบ 10 entries",
+      "icon": "📚",
+      "condition": {
+        "type": "quest_count",
+        "count": 10
+      }
+    }
+  ],
+  "years": {
+    "2025": {
+      "entries": [
+        {
+          "id": "e2025-1",
+          "date": "2025-01-01",
+          "title": "วันปีใหม่ด้วยกัน",
+          "content": "เคาท์ดาวน์ด้วยกันที่บ้าน ดูพลุ กินอาหารอร่อยๆ และวางแผนปีใหม่ร่วมกัน รู้สึกอบอุ่นมากที่ได้เริ่มต้นปีใหม่กับคนที่รัก",
+          "mood": 10,
+          "tags": [
+            "special",
+            "celebration",
+            "new-year"
+          ],
+          "photos": [
+            "/images/newyear2025.jpg"
+          ]
+        },
+        {
+          "id": "e2025-2",
+          "date": "2025-02-14",
+          "title": "Valentine's Day",
+          "content": "วันนี้เซอร์ไพรส์กันเรื่องของขวัญ ไปกินข้าวที่ร้านโปรด แล้วเดินเล่นดูดาว คืนนี้ท้องฟ้าสวยมาก",
+          "mood": 10,
+          "tags": [
+            "valentine",
+            "romantic",
+            "date"
+          ],
+          "photos": [
+            "/images/valentine2025.jpg"
+          ]
+        },
+        {
+          "id": "e2025-3",
+          "date": "2025-03-20",
+          "title": "เที่ยวทะเลครั้งแรก",
+          "content": "ไปเที่ยวทะเลด้วยกันครั้งแรก! ตื่นเช้าไปดูพระอาทิตย์ขึ้น เล่นน้ำทะเล กินซีฟู้ด สนุกสุดๆ",
+          "mood": 9,
+          "tags": [
+            "travel",
+            "beach",
+            "first-time"
+          ],
+          "photos": [
+            "/images/beach2025.jpg",
+            "/images/sunset2025.jpg"
+          ]
+        },
+        {
+          "id": "e2025-4",
+          "date": "2025-05-15",
+          "title": "ทำอาหารด้วยกัน",
+          "content": "วันนี้ลองทำพาสต้าด้วยกัน ถึงจะไม่ค่อยสำเร็จตามแผน แต่สนุกมากและอร่อยด้วย!",
+          "mood": 8,
+          "tags": [
+            "cooking",
+            "home",
+            "fun"
+          ],
+          "photos": []
+        }
+      ],
+      "moments": [
+        {
+          "id": "m2025-1",
+          "date": "2025-01-01",
+          "title": "New Year's Eve Together",
+          "description": "เคาท์ดาวน์ปีใหม่ด้วยกันเป็นครั้งแรก ดูพลุที่ระเบียงบ้าน",
+          "category": "firsts",
+          "isTopMoment": true,
+          "score": 10,
+          "photos": [
+            "/images/newyear2025.jpg"
+          ],
+          "relatedEntryIds": [
+            "e2025-1"
+          ]
+        },
+        {
+          "id": "m2025-2",
+          "date": "2025-03-20",
+          "title": "First Beach Trip",
+          "description": "เดินทางไปทะเลด้วยกันครั้งแรก ความทรงจำที่สวยงาม",
+          "category": "trips",
+          "isTopMoment": true,
+          "score": 9,
+          "photos": [
+            "/images/beach2025.jpg"
+          ],
+          "relatedEntryIds": [
+            "e2025-3"
+          ]
+        },
+        {
+          "id": "m2025-3",
+          "date": "2025-02-14",
+          "title": "มุกพาสต้า",
+          "description": "ตอนที่พาสต้าเกือบไหม้แล้วเราหัวเราะกันจนท้องแข็ง กลายเป็นมุกประจำ",
+          "category": "inside_jokes",
+          "photos": [],
+          "relatedEntryIds": [
+            "e2025-4"
+          ]
+        }
+      ],
+      "photos": [
+        {
+          "id": "p2025-1",
+          "url": "/images/newyear2025.jpg",
+          "caption": "Happy New Year 2025! 🎆",
+          "date": "2025-01-01",
+          "month": 1,
+          "tags": [
+            "new-year",
+            "celebration"
+          ]
+        },
+        {
+          "id": "p2025-2",
+          "url": "/images/valentine2025.jpg",
+          "caption": "Valentine's dinner",
+          "date": "2025-02-14",
+          "month": 2,
+          "tags": [
+            "valentine",
+            "dinner"
+          ]
+        },
+        {
+          "id": "p2025-3",
+          "url": "/images/beach2025.jpg",
+          "caption": "First beach together",
+          "date": "2025-03-20",
+          "month": 3,
+          "tags": [
+            "beach",
+            "travel"
+          ]
+        },
+        {
+          "id": "p2025-4",
+          "url": "/images/sunset2025.jpg",
+          "caption": "Sunset at the beach",
+          "date": "2025-03-20",
+          "month": 3,
+          "tags": [
+            "sunset",
+            "beach"
+          ]
+        },
+        {
+          "id": "p2025-5",
+          "url": "/images/cafe2025.jpg",
+          "caption": "Our favorite café",
+          "date": "2025-04-10",
+          "month": 4,
+          "tags": [
+            "cafe",
+            "date"
+          ]
+        },
+        {
+          "id": "p2025-6",
+          "url": "/images/home2025.jpg",
+          "caption": "Cooking at home",
+          "date": "2025-05-15",
+          "month": 5,
+          "tags": [
+            "home",
+            "cooking"
+          ]
+        }
+      ],
+      "notes": [
+        {
+          "id": "n2025-1",
+          "date": "2025-01-15",
+          "content": "ขอบคุณที่อยู่ข้างกันเสมอนะ 💕",
+          "type": "love"
+        },
+        {
+          "id": "n2025-2",
+          "date": "2025-02-14",
+          "content": "รักที่สุดในโลก",
+          "type": "love"
+        }
+      ],
+      "yearRecap": {
+        "lessonsLearned": [
+          "การสื่อสารคือหัวใจสำคัญของความสัมพันธ์",
+          "ไม่จำเป็นต้องสมบูรณ์แบบ แค่อยู่ด้วยกันก็พอ",
+          "ความสุขเล็กๆ สำคัญกว่าที่คิด"
+        ],
+        "bestMoments": [
+          "เคาท์ดาวน์ปีใหม่ด้วยกัน",
+          "ทริปทะเลครั้งแรก",
+          "ทำอาหารด้วยกัน"
+        ],
+        "gratitude": [
+          "ขอบคุณที่เข้าใจและอดทนกับเราเสมอ",
+          "ขอบคุณทุกรอยยิ้มและเสียงหัวเราะ",
+          "ขอบคุณที่เป็นบ้านให้กลับ"
+        ],
+        "nextYearIntentions": [
+          "เดินทางด้วยกันมากขึ้น",
+          "เรียนรู้สิ่งใหม่ๆ ด้วยกัน",
+          "ดูแลสุขภาพกันและกัน"
+        ]
+      },
+      "chatEpisodes": [
+        {
+          "id": "c2025-1",
+          "title": "Good Morning Chat",
+          "date": "2025-01-02",
+          "description": "สวัสดีตอนเช้าวันแรกของปี",
+          "messages": [
+            {
+              "from": "me",
+              "text": "สวัสดีปีใหม่อีกครั้งนะ 🎉",
+              "time": "08:00"
+            },
+            {
+              "from": "you",
+              "text": "สวัสดีค่า~ หลับดีมั้ย",
+              "time": "08:01"
+            },
+            {
+              "from": "me",
+              "text": "หลับดีมาก ยิ้มตลอดคืนเลย",
+              "time": "08:02"
+            },
+            {
+              "from": "you",
+              "text": "อร่อยมั้ยเมื่อคืน",
+              "time": "08:02"
+            },
+            {
+              "from": "me",
+              "text": "อร่อยมาก! ปีหน้าทำอีกนะ",
+              "time": "08:03"
+            },
+            {
+              "from": "you",
+              "text": "ได้เลยค่า 💕",
+              "time": "08:03"
+            }
+          ]
+        },
+        {
+          "id": "c2025-2",
+          "title": "Planning Our Trip",
+          "date": "2025-03-01",
+          "description": "วางแผนทริปทะเล",
+          "messages": [
+            {
+              "from": "me",
+              "text": "เราไปทะเลกันมั้ย",
+              "time": "20:00"
+            },
+            {
+              "from": "you",
+              "text": "ไปปปป!! ไปเมื่อไหร่",
+              "time": "20:01"
+            },
+            {
+              "from": "me",
+              "text": "20 มีนา ดีมั้ย",
+              "time": "20:01"
+            },
+            {
+              "from": "you",
+              "text": "เยี่ยมเลย จองโรงแรมหรือยัง",
+              "time": "20:02"
+            },
+            {
+              "from": "me",
+              "text": "จองแล้ว วิวทะเลด้วย 🌊",
+              "time": "20:03"
+            },
+            {
+              "from": "you",
+              "text": "ดีใจมากกก รอไม่ไหวแล้ว!",
+              "time": "20:04"
+            }
+          ]
+        }
+      ],
+      "quests": [
+        {
+          "id": "q2025-1",
+          "title": "First Beach Trip",
+          "description": "ไปเที่ยวทะเลด้วยกันครั้งแรก",
+          "difficulty": 3,
+          "status": "done",
+          "tags": [
+            "trip",
+            "beach",
+            "adventure"
+          ],
+          "reward": "Unlocked Beach Memory!",
+          "completedDate": "2025-03-20"
+        },
+        {
+          "id": "q2025-2",
+          "title": "Cook Together",
+          "description": "ทำอาหารด้วยกันสักมื้อ",
+          "difficulty": 2,
+          "status": "done",
+          "tags": [
+            "home",
+            "cooking",
+            "date"
+          ],
+          "reward": "Chef Badge!",
+          "completedDate": "2025-05-15"
+        },
+        {
+          "id": "q2025-3",
+          "title": "Watch Sunrise",
+          "description": "ตื่นเช้าไปดูพระอาทิตย์ขึ้นด้วยกัน",
+          "difficulty": 4,
+          "status": "done",
+          "tags": [
+            "adventure",
+            "romantic"
+          ],
+          "reward": "Early Bird Badge!",
+          "completedDate": "2025-03-20"
+        },
+        {
+          "id": "q2025-4",
+          "title": "Mountain Camping",
+          "description": "ไปแคมป์ปิ้งบนภูเขา",
+          "difficulty": 5,
+          "status": "todo",
+          "tags": [
+            "trip",
+            "adventure",
+            "camping"
+          ],
+          "reward": "Mountain Explorer Badge!"
+        },
+        {
+          "id": "q2025-5",
+          "title": "Learn Something New Together",
+          "description": "เรียนอะไรใหม่ๆ ด้วยกัน (ภาษา/ดนตรี/วาดรูป)",
+          "difficulty": 3,
+          "status": "doing",
+          "tags": [
+            "learning",
+            "growth"
+          ],
+          "reward": "Knowledge Seekers!"
+        }
+      ],
+      "places": [
+        {
+          "id": "pl2025-1",
+          "name": "Our Favorite Café",
+          "type": "cafe",
+          "x": 25,
+          "y": 35,
+          "description": "คาเฟ่ที่เราชอบไปนั่งทำงานด้วยกัน กาแฟอร่อย บรรยากาศดี",
+          "photo": "/images/cafe2025.jpg",
+          "relatedMomentIds": []
+        },
+        {
+          "id": "pl2025-2",
+          "name": "First Beach",
+          "type": "beach",
+          "x": 75,
+          "y": 65,
+          "description": "ชายหาดที่เราไปเที่ยวด้วยกันครั้งแรก พระอาทิตย์ตกสวยมาก",
+          "photo": "/images/beach2025.jpg",
+          "relatedMomentIds": [
+            "m2025-2"
+          ]
+        },
+        {
+          "id": "pl2025-3",
+          "name": "Our Home",
+          "type": "home",
+          "x": 50,
+          "y": 50,
+          "description": "บ้านของเรา ที่ที่อบอุ่นที่สุด",
+          "photo": "/images/home2025.jpg",
+          "relatedMomentIds": [
+            "m2025-1"
+          ]
+        },
+        {
+          "id": "pl2025-4",
+          "name": "Romantic Restaurant",
+          "type": "restaurant",
+          "x": 35,
+          "y": 20,
+          "description": "ร้านอาหารที่ไปกินวันวาเลนไทน์",
+          "photo": "/images/valentine2025.jpg",
+          "relatedMomentIds": []
+        }
+      ],
+      "visitedProvinces": [
+        {
+          "provinceId": "bangkok",
+          "visitDate": "2025-01-01",
+          "note": "บ้านเรา"
+        },
+        {
+          "provinceId": "chonburi",
+          "visitDate": "2025-03-20",
+          "note": "ทริปทะเลครั้งแรก",
+          "relatedMomentIds": [
+            "m2025-2"
+          ]
+        },
+        {
+          "provinceId": "chiangmai",
+          "visitDate": "2025-06-15",
+          "note": "ไปเที่ยวดอย"
+        },
+        {
+          "provinceId": "nakhonratchasima",
+          "visitDate": "2025-04-10",
+          "note": "ไปเขาใหญ่"
+        },
+        {
+          "provinceId": "ayutthaya",
+          "visitDate": "2025-05-20",
+          "note": "เที่ยววัดประวัติศาสตร์"
+        }
+      ]
+    },
+    "2026": {
+      "entries": [
+        {
+          "id": "e2026-1",
+          "date": "2026-01-01",
+          "title": "ปีใหม่ปีที่สอง",
+          "content": "อีกปีที่ผ่านไปด้วยกัน ปีนี้พิเศษกว่าเดิม เพราะเรารู้จักกันมากขึ้น",
+          "mood": 10,
+          "tags": [
+            "new-year",
+            "anniversary"
+          ],
+          "photos": []
+        },
+        {
+          "id": "e2026-2",
+          "date": "2026-02-14",
+          "title": "Valentine's Day 2026",
+          "content": "ปีนี้ทำเซอร์ไพรส์กันเอง ทำอาหารให้กันกิน",
+          "mood": 9,
+          "tags": [
+            "valentine",
+            "homemade"
+          ],
+          "photos": []
+        },
+        {
+          "id": "e2026-3",
+          "date": "2026-06-01",
+          "title": "ครบรอบ 3 ปี!",
+          "content": "วันนี้ครบ 3 ปีแล้วที่เราคบกัน เวลาผ่านไปเร็วมาก แต่ความรักยังเหมือนวัน แรก",
+          "mood": 10,
+          "tags": [
+            "anniversary",
+            "special",
+            "milestone"
+          ],
+          "photos": []
+        }
+      ],
+      "moments": [
+        {
+          "id": "m2026-1",
+          "date": "2026-06-01",
+          "title": "3rd Anniversary",
+          "description": "ครบรอบ 3 ปีของเรา 🎉",
+          "category": "firsts",
+          "isTopMoment": true,
+          "score": 10,
+          "photos": [],
+          "relatedEntryIds": [
+            "e2026-3"
+          ]
+        },
+        {
+          "id": "m2026-2",
+          "date": "2026-04-15",
+          "title": "Japan Trip",
+          "description": "ไปเที่ยวญี่ปุ่นด้วยกันครั้งแรก!",
+          "category": "trips",
+          "isTopMoment": true,
+          "score": 9,
+          "photos": []
+        },
+        {
+          "id": "m2026-3",
+          "date": "2026-03-01",
+          "title": "มุกพิซซ่า",
+          "description": "ตอนสั่งพิซซ่าแล้วได้มาผิด แต่กลับอร่อยกว่าที่สั่ง",
+          "category": "inside_jokes",
+          "photos": []
+        }
+      ],
+      "photos": [
+        {
+          "id": "p2026-1",
+          "url": "/images/2026/newyear.jpg",
+          "caption": "Happy New Year 2026!",
+          "date": "2026-01-01",
+          "month": 1,
+          "tags": [
+            "new-year"
+          ]
+        },
+        {
+          "id": "p2026-2",
+          "url": "/images/2026/valentine.jpg",
+          "caption": "Homemade Valentine's dinner",
+          "date": "2026-02-14",
+          "month": 2,
+          "tags": [
+            "valentine"
+          ]
+        },
+        {
+          "id": "p2026-3",
+          "url": "/images/2026/japan1.jpg",
+          "caption": "Tokyo Tower",
+          "date": "2026-04-15",
+          "month": 4,
+          "tags": [
+            "japan",
+            "travel"
+          ]
+        },
+        {
+          "id": "p2026-4",
+          "url": "/images/2026/japan2.jpg",
+          "caption": "Cherry Blossoms",
+          "date": "2026-04-16",
+          "month": 4,
+          "tags": [
+            "japan",
+            "sakura"
+          ]
+        },
+        {
+          "id": "p2026-5",
+          "url": "/images/2026/anniversary.jpg",
+          "caption": "3rd Anniversary!",
+          "date": "2026-06-01",
+          "month": 6,
+          "tags": [
+            "anniversary"
+          ]
+        },
+        {
+          "id": "p2026-6",
+          "url": "/images/2026/summer.jpg",
+          "caption": "Summer vibes",
+          "date": "2026-07-20",
+          "month": 7,
+          "tags": [
+            "summer"
+          ]
+        }
+      ],
+      "notes": [
+        {
+          "id": "n2026-1",
+          "date": "2026-06-01",
+          "content": "3 ปีแล้ว และยังรักเหมือนเดิม ❤️",
+          "type": "love"
+        }
+      ],
+      "yearRecap": {
+        "lessonsLearned": [],
+        "bestMoments": [],
+        "gratitude": [],
+        "nextYearIntentions": []
+      },
+      "chatEpisodes": [
+        {
+          "id": "c2026-1",
+          "title": "Anniversary Chat",
+          "date": "2026-06-01",
+          "description": "แชทวันครบรอบ",
+          "messages": [
+            {
+              "from": "me",
+              "text": "สุขสันต์วันครบรอบนะ 🎉",
+              "time": "00:00"
+            },
+            {
+              "from": "you",
+              "text": "สุขสันต์ค่ะ! 3 ปีแล้วว",
+              "time": "00:01"
+            },
+            {
+              "from": "me",
+              "text": "รักมากนะ ขอบคุณที่อยู่ด้วยกันมาตลอด",
+              "time": "00:02"
+            },
+            {
+              "from": "you",
+              "text": "รักเหมือนกันค่ะ 💕",
+              "time": "00:02"
+            }
+          ]
+        },
+        {
+          "id": "c2026-2",
+          "title": "Japan Trip Planning",
+          "date": "2026-03-01",
+          "description": "วางแผนไปญี่ปุ่น",
+          "messages": [
+            {
+              "from": "me",
+              "text": "ถ้าปีนี้ไปญี่ปุ่นกันล่ะ?",
+              "time": "21:00"
+            },
+            {
+              "from": "you",
+              "text": "จริงอ่ะ!! ไปเลยย",
+              "time": "21:01"
+            },
+            {
+              "from": "me",
+              "text": "เดือน เมษา ดูซากุระด้วย",
+              "time": "21:02"
+            },
+            {
+              "from": "you",
+              "text": "Perfect! 🌸",
+              "time": "21:03"
+            }
+          ]
+        }
+      ],
+      "quests": [
+        {
+          "id": "q2026-1",
+          "title": "Japan Trip",
+          "description": "ไปเที่ยวญี่ปุ่นด้วยกัน",
+          "difficulty": 5,
+          "status": "done",
+          "tags": [
+            "trip",
+            "international",
+            "adventure"
+          ],
+          "reward": "World Traveler Badge!",
+          "completedDate": "2026-04-20"
+        },
+        {
+          "id": "q2026-2",
+          "title": "Learn Japanese Basics",
+          "description": "เรียนภาษาญี่ปุ่นพื้นฐานด้วยกัน",
+          "difficulty": 3,
+          "status": "doing",
+          "tags": [
+            "learning",
+            "language"
+          ],
+          "reward": "Language Learners!"
+        },
+        {
+          "id": "q2026-3",
+          "title": "Celebrate 3rd Anniversary",
+          "description": "ฉลองครบรอบ 3 ปี",
+          "difficulty": 2,
+          "status": "done",
+          "tags": [
+            "anniversary",
+            "celebration"
+          ],
+          "reward": "Milestone Memory!",
+          "completedDate": "2026-06-01"
+        },
+        {
+          "id": "q2026-4",
+          "title": "Adopt a Pet",
+          "description": "รับเลี้ยงสัตว์ด้วยกัน",
+          "difficulty": 4,
+          "status": "todo",
+          "tags": [
+            "home",
+            "family"
+          ],
+          "reward": "Pet Parents!"
+        },
+        {
+          "id": "q2026-5",
+          "title": "Star Gazing Night",
+          "description": "ไปดูดาวด้วยกัน",
+          "difficulty": 2,
+          "status": "todo",
+          "tags": [
+            "romantic",
+            "night"
+          ],
+          "reward": "Star Lovers!"
+        }
+      ],
+      "places": [
+        {
+          "id": "pl2026-1",
+          "name": "Tokyo Tower",
+          "type": "travel",
+          "x": 85,
+          "y": 25,
+          "description": "หอคอยโตเกียว วิวสวยมากตอนกลางคืน",
+          "relatedMomentIds": [
+            "m2026-2"
+          ]
+        },
+        {
+          "id": "pl2026-2",
+          "name": "Ueno Park",
+          "type": "park",
+          "x": 80,
+          "y": 40,
+          "description": "สวนอุเอโนะ ดูซากุระบาน",
+          "relatedMomentIds": [
+            "m2026-2"
+          ]
+        },
+        {
+          "id": "pl2026-3",
+          "name": "Anniversary Restaurant",
+          "type": "restaurant",
+          "x": 40,
+          "y": 45,
+          "description": "ร้านที่ไปฉลองครบรอบ 3 ปี",
+          "relatedMomentIds": [
+            "m2026-1"
+          ]
+        },
+        {
+          "id": "pl2026-4",
+          "name": "Our Home",
+          "type": "home",
+          "x": 50,
+          "y": 50,
+          "description": "บ้านของเรา",
+          "relatedMomentIds": []
+        }
+      ],
+      "visitedProvinces": [
+        {
+          "provinceId": "bangkok",
+          "visitDate": "2026-01-01",
+          "note": "บ้านเรา"
+        },
+        {
+          "provinceId": "phuket",
+          "visitDate": "2026-08-15",
+          "note": "ทริปภูเก็ต"
+        },
+        {
+          "provinceId": "krabi",
+          "visitDate": "2026-08-18",
+          "note": "ต่อจากภูเก็ต"
+        },
+        {
+          "provinceId": "songkhla",
+          "visitDate": "2026-12-20",
+          "note": "เที่ยวหาดใหญ่"
+        }
+      ]
+    },
+    "2027": {
+      "entries": [
+        {
+          "id": "e2027-1",
+          "date": "2027-01-01",
+          "title": "Welcome 2027!",
+          "content": "ปีใหม่อีกปี เป้าหมายปีนี้คือ...",
+          "mood": 9,
+          "tags": [
+            "new-year",
+            "goals"
+          ],
+          "photos": []
+        },
+        {
+          "id": "e2027-2",
+          "date": "2027-02-14",
+          "title": "Valentine 2027",
+          "content": "วาเลนไทน์ปีนี้ทำอะไรพิเศษ...",
+          "mood": 9,
+          "tags": [
+            "valentine"
+          ],
+          "photos": []
+        },
+        {
+          "id": "e2027-3",
+          "date": "2027-06-01",
+          "title": "ครบรอบ 4 ปี!",
+          "content": "4 ปีแห่งความรักและความสุข",
+          "mood": 10,
+          "tags": [
+            "anniversary",
+            "milestone"
+          ],
+          "photos": []
+        }
+      ],
+      "moments": [
+        {
+          "id": "m2027-1",
+          "date": "2027-06-01",
+          "title": "4th Anniversary",
+          "description": "ครบรอบ 4 ปีของเรา 🎊",
+          "category": "firsts",
+          "isTopMoment": true,
+          "score": 10,
+          "photos": []
+        },
+        {
+          "id": "m2027-2",
+          "date": "2027-08-01",
+          "title": "Surprise Trip",
+          "description": "ทริปเซอร์ไพรส์!",
+          "category": "trips",
+          "photos": []
+        },
+        {
+          "id": "m2027-3",
+          "date": "2027-03-15",
+          "title": "มุกใหม่",
+          "description": "เรื่องตลกใหม่ของเรา",
+          "category": "inside_jokes",
+          "photos": []
+        }
+      ],
+      "photos": [
+        {
+          "id": "p2027-1",
+          "url": "/images/2027/newyear.jpg",
+          "caption": "New Year 2027",
+          "date": "2027-01-01",
+          "month": 1,
+          "tags": [
+            "new-year"
+          ]
+        },
+        {
+          "id": "p2027-2",
+          "url": "/images/2027/spring.jpg",
+          "caption": "Spring together",
+          "date": "2027-03-20",
+          "month": 3,
+          "tags": [
+            "spring"
+          ]
+        },
+        {
+          "id": "p2027-3",
+          "url": "/images/2027/anniversary.jpg",
+          "caption": "4th Anniversary",
+          "date": "2027-06-01",
+          "month": 6,
+          "tags": [
+            "anniversary"
+          ]
+        },
+        {
+          "id": "p2027-4",
+          "url": "/images/2027/summer.jpg",
+          "caption": "Summer fun",
+          "date": "2027-07-15",
+          "month": 7,
+          "tags": [
+            "summer"
+          ]
+        },
+        {
+          "id": "p2027-5",
+          "url": "/images/2027/fall.jpg",
+          "caption": "Autumn colors",
+          "date": "2027-10-10",
+          "month": 10,
+          "tags": [
+            "autumn"
+          ]
+        },
+        {
+          "id": "p2027-6",
+          "url": "/images/2027/winter.jpg",
+          "caption": "Winter wonderland",
+          "date": "2027-12-20",
+          "month": 12,
+          "tags": [
+            "winter"
+          ]
+        }
+      ],
+      "notes": [
+        {
+          "id": "n2027-1",
+          "date": "2027-06-01",
+          "content": "4 ปีผ่านไป รักมากขึ้นทุกวัน",
+          "type": "love"
+        }
+      ],
+      "yearRecap": {
+        "lessonsLearned": [],
+        "bestMoments": [],
+        "gratitude": [],
+        "nextYearIntentions": []
+      },
+      "chatEpisodes": [
+        {
+          "id": "c2027-1",
+          "title": "New Year 2027",
+          "date": "2027-01-01",
+          "description": "แชทปีใหม่",
+          "messages": [
+            {
+              "from": "me",
+              "text": "Happy New Year 2027! 🎆",
+              "time": "00:00"
+            },
+            {
+              "from": "you",
+              "text": "Happy New Year ค่า! ปีนี้ขอให้...",
+              "time": "00:01"
+            },
+            {
+              "from": "me",
+              "text": "ขอให้รักกันตลอดไป",
+              "time": "00:02"
+            },
+            {
+              "from": "you",
+              "text": "Forever and ever 💕",
+              "time": "00:02"
+            }
+          ]
+        },
+        {
+          "id": "c2027-2",
+          "title": "Anniversary Planning",
+          "date": "2027-05-15",
+          "description": "วางแผนวันครบรอบ",
+          "messages": [
+            {
+              "from": "me",
+              "text": "ครบรอบ 4 ปี ไปไหนดี",
+              "time": "20:00"
+            },
+            {
+              "from": "you",
+              "text": "ไปทะเลอีกครั้ง?",
+              "time": "20:01"
+            },
+            {
+              "from": "me",
+              "text": "ดี! ที่เดิมเลยมั้ย",
+              "time": "20:02"
+            },
+            {
+              "from": "you",
+              "text": "Back to where it all began 🏖️",
+              "time": "20:03"
+            }
+          ]
+        }
+      ],
+      "quests": [
+        {
+          "id": "q2027-1",
+          "title": "4th Anniversary Trip",
+          "description": "ทริปครบรอบ 4 ปี",
+          "difficulty": 4,
+          "status": "todo",
+          "tags": [
+            "anniversary",
+            "trip"
+          ],
+          "reward": "Anniversary Adventurers!"
+        },
+        {
+          "id": "q2027-2",
+          "title": "Learn to Dance",
+          "description": "เรียนเต้นรำด้วยกัน",
+          "difficulty": 3,
+          "status": "todo",
+          "tags": [
+            "learning",
+            "fun"
+          ],
+          "reward": "Dancing Partners!"
+        },
+        {
+          "id": "q2027-3",
+          "title": "Photo Album",
+          "description": "ทำอัลบั้มรูปด้วยกัน",
+          "difficulty": 2,
+          "status": "todo",
+          "tags": [
+            "memory",
+            "creative"
+          ],
+          "reward": "Memory Keepers!"
+        },
+        {
+          "id": "q2027-4",
+          "title": "Volunteer Together",
+          "description": "ทำจิตอาสาด้วยกัน",
+          "difficulty": 3,
+          "status": "todo",
+          "tags": [
+            "giving",
+            "together"
+          ],
+          "reward": "Kind Hearts!"
+        },
+        {
+          "id": "q2027-5",
+          "title": "Write Love Letters",
+          "description": "เขียนจดหมายรักให้กัน",
+          "difficulty": 1,
+          "status": "todo",
+          "tags": [
+            "romantic",
+            "writing"
+          ],
+          "reward": "Love Letter Writers!"
+        }
+      ],
+      "places": [
+        {
+          "id": "pl2027-1",
+          "name": "Our Home",
+          "type": "home",
+          "x": 50,
+          "y": 50,
+          "description": "บ้านของเรา",
+          "relatedMomentIds": []
+        },
+        {
+          "id": "pl2027-2",
+          "name": "Anniversary Beach",
+          "type": "beach",
+          "x": 75,
+          "y": 65,
+          "description": "ชายหาดที่ไปฉลองครบรอบ",
+          "relatedMomentIds": [
+            "m2027-1"
+          ]
+        },
+        {
+          "id": "pl2027-3",
+          "name": "New Café Spot",
+          "type": "cafe",
+          "x": 30,
+          "y": 25,
+          "description": "คาเฟ่ใหม่ที่ค้นพบ",
+          "relatedMomentIds": []
+        },
+        {
+          "id": "pl2027-4",
+          "name": "Dance Studio",
+          "type": "other",
+          "x": 60,
+          "y": 30,
+          "description": "สตูดิโอเรียนเต้น",
+          "relatedMomentIds": []
+        }
+      ],
+      "visitedProvinces": [
+        {
+          "provinceId": "bangkok",
+          "visitDate": "2027-01-01",
+          "note": "บ้านเรา"
+        }
+      ]
+    }
+  },
+  "countdowns": [
+    {
+      "id": "countdown-1",
+      "title": "ครบรอบ 3 ปี",
+      "date": "2026-06-01",
+      "icon": "💕",
+      "description": "วันครบรอบของเรา"
+    },
+    {
+      "id": "countdown-2",
+      "title": "วันเกิดเธอ",
+      "date": "2025-08-15",
+      "icon": "🎂",
+      "description": "Happy Birthday!"
+    }
+  ],
+  "wishlistProvinces": [
+    "chiangrai",
+    "nan",
+    "loei",
+    "suratthani",
+    "trat",
+    "kanchanaburi",
+    "phangnga",
+    "nakhonsithammarat"
+  ]
+}

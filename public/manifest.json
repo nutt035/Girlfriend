@@ -1,0 +1,17 @@
+{
+    "name": "Our Universe",
+    "short_name": "Universe",
+    "description": "A shared space for our memories.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fef7ed",
+    "theme_color": "#ec4899",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
